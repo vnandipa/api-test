@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "c81327e9-90d7-8d4e-da70-09716147b9c1",
+		"name": "TestDataApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Scenario Sql",
+			"_postman_id": "4c1711a1-4ded-ac44-6358-1167c37e271d",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5NTY1MTIzMX0.hsB94qHo5ND_Gx2Dfd9IprkIrkfcM6xt8NSyKQJzaYEv9S0B-obNUMn4J6vvJoyb6mIvasruNPPxEBi_wIShZw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sql\" : \"select * from subscriber\",\r\n  \"externalDb\" : \"SAMSON\"\r\n}"
+				},
+				"url": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenario-sqls",
+				"description": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenario-sqls"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Scenario",
+			"_postman_id": "668bdcf2-f389-2635-196a-b7d9b78ed6e6",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5NTY1MTIzMX0.hsB94qHo5ND_Gx2Dfd9IprkIrkfcM6xt8NSyKQJzaYEv9S0B-obNUMn4J6vvJoyb6mIvasruNPPxEBi_wIShZw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1152,\r\n  \"name\" : \"RandomSubscriber\",\r\n  \"description\" : null,\r\n  \"type\" : \"SUBSCRIBER\",\r\n  \"dbFlag\" : true,\r\n  \"scenarioSql\" : {\r\n\t\"id\": 1102,\r\n\t\"sql\": \"select * from subscriber\",\r\n\t\"externalDb\": \"SAMSON\"\r\n\t}\r\n}"
+				},
+				"url": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenarios",
+				"description": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Get SIM",
+			"_postman_id": "c9525e67-88bf-2b84-de70-30487cb9f5e2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5NjQzMTAwMH0.uaFNATigSiOBbCx_q4hxHFaRb42jIu26AFzYQJlJNiRUI6x22139gLxXGHhLpdhbI1Ne7f8E0mXK3SnhH3orDA"
+					}
+				],
+				"url": {
+					"raw": "https://testdata.apps.px-01.cf.t-mobile.com/api/sim?env=qlab03&status=AA",
+					"protocol": "https",
+					"host": [
+						"testdata",
+						"apps",
+						"px-01",
+						"cf",
+						"t-mobile",
+						"com"
+					],
+					"path": [
+						"api",
+						"sim"
+					],
+					"query": [
+						{
+							"key": "env",
+							"value": "qlab03"
+						},
+						{
+							"key": "status",
+							"value": "AA"
+						}
+					]
+				},
+				"description": "http://testdata.apps.px-01.cf.t-mobile.com/api/sim?env=qlab03&status=AA"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscriber - Direct From DB",
+			"_postman_id": "a7d25c71-ce7a-8f3a-5152-c31dd5201b28",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5ODA4NTg5Mn0.a2VRxhaHIE2nLdptedb719j27I3eEGH12qScYxNuNgftWDAYh6JYgzbw-A0wG2216XN8SEDIetV_KmD4331T7Q"
+					}
+				],
+				"url": {
+					"raw": "http://testdata.apps.px-01.cf.t-mobile.com/api/subscriber?scenario=RandomSubscriber&env=qlab03",
+					"protocol": "http",
+					"host": [
+						"testdata",
+						"apps",
+						"px-01",
+						"cf",
+						"t-mobile",
+						"com"
+					],
+					"path": [
+						"api",
+						"subscriber"
+					],
+					"query": [
+						{
+							"key": "scenario",
+							"value": "RandomSubscriber"
+						},
+						{
+							"key": "env",
+							"value": "qlab03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Scenario",
+			"_postman_id": "ee12059d-cc6b-1d99-931a-05d9963931a1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5NTY1MTIzMX0.hsB94qHo5ND_Gx2Dfd9IprkIrkfcM6xt8NSyKQJzaYEv9S0B-obNUMn4J6vvJoyb6mIvasruNPPxEBi_wIShZw"
+					}
+				],
+				"url": {
+					"raw": "http://testdata.apps.px-01.cf.t-mobile.com/api/subscriber?scenario=RandomSubscriber&env=qlab03",
+					"protocol": "http",
+					"host": [
+						"testdata",
+						"apps",
+						"px-01",
+						"cf",
+						"t-mobile",
+						"com"
+					],
+					"path": [
+						"api",
+						"subscriber"
+					],
+					"query": [
+						{
+							"key": "scenario",
+							"value": "RandomSubscriber"
+						},
+						{
+							"key": "env",
+							"value": "qlab03"
+						}
+					]
+				},
+				"description": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"_postman_id": "c745e2e6-aca7-7858-1722-6c7c20e59bf6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"user\",\r\n  \"rememberMe\": true,\r\n  \"username\": \"user\"\r\n}"
+				},
+				"url": "https://gateway.dev.px-01.cf.t-mobile.com/api/authenticate",
+				"description": "JWT authentication with gateway app\n\nhttp://gateway.apps.tt-stg.cf.t-mobile.com/api/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscriber TDM",
+			"_postman_id": "12a44bcb-b45f-2e74-91ca-942133225f32",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTQ5NzAyMTExN30.1frB2zjMzBOpvWi9EiPu72OUOljDPdNxU0_EWyJVnc4JPFd5UdadA4QA6mIfgqSrLhvoKjlJUzH71fQ50Cl7Cw"
+					}
+				],
+				"url": {
+					"raw": "http://testdata.apps.px-01.cf.t-mobile.com/api/subscriber?scenario=Jump_Upg_Single&env=qlab03",
+					"protocol": "http",
+					"host": [
+						"testdata",
+						"apps",
+						"px-01",
+						"cf",
+						"t-mobile",
+						"com"
+					],
+					"path": [
+						"api",
+						"subscriber"
+					],
+					"query": [
+						{
+							"key": "scenario",
+							"value": "Jump_Upg_Single"
+						},
+						{
+							"key": "env",
+							"value": "qlab03"
+						}
+					]
+				},
+				"description": "http://testdata.apps.px-01.cf.t-mobile.com/api/scenarios\n"
+			},
+			"response": []
+		},
+		{
+			"name": "TDM API Request",
+			"_postman_id": "11918d3e-4055-26c2-0682-41ee91bb0fd6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://devpltdmg0001.unix.gsm1900.org:8080/DataApi/data?scenario=Jump_Upg_Single&env=QLAB06&form=json&cache=N&key=UkVOSklKT1NF&count=10",
+					"protocol": "http",
+					"host": [
+						"devpltdmg0001",
+						"unix",
+						"gsm1900",
+						"org"
+					],
+					"port": "8080",
+					"path": [
+						"DataApi",
+						"data"
+					],
+					"query": [
+						{
+							"key": "scenario",
+							"value": "Jump_Upg_Single"
+						},
+						{
+							"key": "env",
+							"value": "QLAB06"
+						},
+						{
+							"key": "form",
+							"value": "json"
+						},
+						{
+							"key": "cache",
+							"value": "N"
+						},
+						{
+							"key": "key",
+							"value": "UkVOSklKT1NF"
+						},
+						{
+							"key": "count",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
